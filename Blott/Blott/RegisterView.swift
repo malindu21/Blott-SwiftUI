@@ -78,6 +78,10 @@ struct RegisterView: View {
                                     RoundedRectangle(cornerRadius: 5)
                                         .inset(by: 1)
                                         .stroke(Color(red: 0.32, green: 0.23, blue: 0.89), lineWidth: 2)
+                                        .overlay(
+                                            Image("Check")
+                                            .frame(width: 16, height: 16)
+                                        )
                                 )
                             
                             // Text/Regular/md: 16px
@@ -129,6 +133,10 @@ struct RegisterView: View {
                                     RoundedRectangle(cornerRadius: 5)
                                         .inset(by: 1)
                                         .stroke(Color(red: 0.32, green: 0.23, blue: 0.89), lineWidth: 2)
+                                        .overlay(
+                                            Image("Check")
+                                            .frame(width: 16, height: 16)
+                                        )
                                 )
                             
                             // Text/Regular/md: 16px

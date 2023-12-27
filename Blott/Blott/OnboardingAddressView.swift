@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OnboardingAddressView: View {
-
+    @State private var address: String = ""
     var body: some View {
         VStack {
             VStack(alignment: .leading, spacing: 0) {
@@ -72,8 +72,7 @@ struct OnboardingAddressView: View {
             Spacer().frame(height: 54)
      
             VStack(alignment: .leading, spacing: 4) {
-                // Text/Medium/xl: 20px
-                Text("SW1A 1AA")
+                TextField("SW1A 1AA", text: $address)
                   .font(
                     Font.custom("Roboto", size: 20)
                       .weight(.medium)

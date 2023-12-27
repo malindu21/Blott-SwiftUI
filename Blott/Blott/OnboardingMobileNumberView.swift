@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OnboardigMobileNumberView: View {
+    @State private var phoneNumber: String = ""
 
     var body: some View {
         VStack {
@@ -73,8 +74,7 @@ struct OnboardigMobileNumberView: View {
             Spacer().frame(height: 54)
      
             VStack(alignment: .leading, spacing: 4) {
-                // Text/Regular/xl: 20px
-                Text("Mobile Number")
+                TextField("Mobile Number", text: $phoneNumber)
                   .font(Font.custom("Roboto", size: 20))
                   .foregroundColor(Color(red: 0.64, green: 0.64, blue: 0.64))
                 
