@@ -15,6 +15,10 @@
 		6737BC4F2B3BEA300086D30A /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6737BC4E2B3BEA300086D30A /* RegisterView.swift */; };
 		6737BC512B3BF1560086D30A /* OnboardingMobileNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6737BC502B3BF1560086D30A /* OnboardingMobileNumberView.swift */; };
 		6737BC532B3BF4340086D30A /* OnboardingAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6737BC522B3BF4340086D30A /* OnboardingAddressView.swift */; };
+		675703362B4645A5005B2B8D /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675703352B4645A5005B2B8D /* RegisterViewModel.swift */; };
+		675703392B4648D7005B2B8D /* WebVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675703382B4648D7005B2B8D /* WebVIew.swift */; };
+		676BF6E42B460EAF004C9B62 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676BF6E32B460EAF004C9B62 /* SplashView.swift */; };
+		678B9B292B45CC640076ADCA /* OnboardingNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678B9B282B45CC640076ADCA /* OnboardingNameViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		6737BC4E2B3BEA300086D30A /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		6737BC502B3BF1560086D30A /* OnboardingMobileNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMobileNumberView.swift; sourceTree = "<group>"; };
 		6737BC522B3BF4340086D30A /* OnboardingAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAddressView.swift; sourceTree = "<group>"; };
+		675703352B4645A5005B2B8D /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		675703382B4648D7005B2B8D /* WebVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebVIew.swift; sourceTree = "<group>"; };
+		676BF6E32B460EAF004C9B62 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		678B9B282B45CC640076ADCA /* OnboardingNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNameViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +68,9 @@
 			isa = PBXGroup;
 			children = (
 				6737BC3E2B3BE4960086D30A /* BlottApp.swift */,
+				676BF6E32B460EAF004C9B62 /* SplashView.swift */,
 				6737BC402B3BE4960086D30A /* ContentView.swift */,
-				6737BC4C2B3BE50D0086D30A /* OnboardingNameView.swift */,
-				6737BC502B3BF1560086D30A /* OnboardingMobileNumberView.swift */,
-				6737BC522B3BF4340086D30A /* OnboardingAddressView.swift */,
-				6737BC4E2B3BEA300086D30A /* RegisterView.swift */,
+				6737BC542B3C07690086D30A /* Presentation */,
 				6737BC422B3BE4970086D30A /* Assets.xcassets */,
 				6737BC442B3BE4970086D30A /* Preview Content */,
 			);
@@ -77,6 +83,44 @@
 				6737BC452B3BE4970086D30A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6737BC542B3C07690086D30A /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				675703372B464887005B2B8D /* CommonWeb */,
+				675703342B464587005B2B8D /* Register */,
+				678B9B272B45CC490076ADCA /* OnBoardingName */,
+				6737BC502B3BF1560086D30A /* OnboardingMobileNumberView.swift */,
+				6737BC522B3BF4340086D30A /* OnboardingAddressView.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		675703342B464587005B2B8D /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				6737BC4E2B3BEA300086D30A /* RegisterView.swift */,
+				675703352B4645A5005B2B8D /* RegisterViewModel.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		675703372B464887005B2B8D /* CommonWeb */ = {
+			isa = PBXGroup;
+			children = (
+				675703382B4648D7005B2B8D /* WebVIew.swift */,
+			);
+			path = CommonWeb;
+			sourceTree = "<group>";
+		};
+		678B9B272B45CC490076ADCA /* OnBoardingName */ = {
+			isa = PBXGroup;
+			children = (
+				6737BC4C2B3BE50D0086D30A /* OnboardingNameView.swift */,
+				678B9B282B45CC640076ADCA /* OnboardingNameViewModel.swift */,
+			);
+			path = OnBoardingName;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,11 +193,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				678B9B292B45CC640076ADCA /* OnboardingNameViewModel.swift in Sources */,
+				675703392B4648D7005B2B8D /* WebVIew.swift in Sources */,
+				676BF6E42B460EAF004C9B62 /* SplashView.swift in Sources */,
 				6737BC512B3BF1560086D30A /* OnboardingMobileNumberView.swift in Sources */,
 				6737BC412B3BE4960086D30A /* ContentView.swift in Sources */,
 				6737BC532B3BF4340086D30A /* OnboardingAddressView.swift in Sources */,
 				6737BC4F2B3BEA300086D30A /* RegisterView.swift in Sources */,
 				6737BC3F2B3BE4960086D30A /* BlottApp.swift in Sources */,
+				675703362B4645A5005B2B8D /* RegisterViewModel.swift in Sources */,
 				6737BC4D2B3BE50D0086D30A /* OnboardingNameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
