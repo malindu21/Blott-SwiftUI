@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct OnboardingAddressView: View {
-    @State private var address: String = ""
+
+
+    @StateObject private var viewModel = OnBoardingAddressViewModel()
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -30,7 +32,7 @@ struct OnboardingAddressView: View {
                         .padding(.bottom, 4.93031)
                         .frame(width: 327, height: 24, alignment: .center)
                         .simultaneousGesture(TapGesture().onEnded {
-                            print("TAPPED")
+              
                             presentationMode.wrappedValue.dismiss()
                         })
                         
@@ -78,23 +80,53 @@ struct OnboardingAddressView: View {
                 
                 Spacer().frame(height: 54)
                 
-                VStack(alignment: .leading, spacing: 4) {
-                    TextField("SW1A 1AA", text: $address)
+                VStack(spacing: 4) {
+                    
+                        
+                    TextField("SW1A 1AA", text: $viewModel.address,  axis: .vertical)
                         .font(
                             Font.custom("Roboto", size: 20)
                                 .weight(.medium)
                         )
                         .foregroundColor(.black)
+                        .lineLimit(2...3)
+                        .onChange(of: viewModel.address) { newValue in
+                                   
+                            viewModel.newValueChange(value: newValue)
+                         
+                            }
+                               
+                    if viewModel.isLoading {
+                        ProgressView("LOADING...")
+                    }else if viewModel.isSelected {
+                        EmptyView()
+                    }else   {
+                        List(viewModel.suggestions.filter { $0.address.contains(viewModel.address) }, id: \.id) { suggestion in
+                            Text(suggestion.address)
+                                .font(Font.custom("Roboto", size: 14).weight(.medium))
+                                .foregroundColor(.black)
+                                .onTapGesture {
+                                    viewModel.address = suggestion.address
+                                    viewModel.selectedId = suggestion.id
+                                    viewModel.isSelected = true
+                                    viewModel.generateFetchedData(id: viewModel.selectedId)
+                                }
+                        }
+                        .listStyle(PlainListStyle()) // Set listStyle to PlainListStyle to remove default background
+                        .frame(height: 375)
+                        .foregroundColor(.white) // Set text color
+                        .background(Color.white) // Set background color
+                    }
                     
-                    
+                
                     
                 }
                 .padding(0)
                 .frame(width: 327, alignment: .topLeading)
-                
+              
                 Spacer()
                 
-                NavigationLink(destination: RegisterView().navigationBarHidden(true)){
+                NavigationLink(destination: GennerateAddressView(viewModel: viewModel).navigationBarHidden(true)){
                     HStack{
                         Spacer()
                         
@@ -105,9 +137,10 @@ struct OnboardingAddressView: View {
                         }
                         .padding(16)
                         
-                        .background( Color(red: 0.32, green: 0.23, blue: 0.89))
+                        .background( viewModel.buttonBackgroundColor() )
                         .cornerRadius(9999)
                         .shadow(color: .black.opacity(0.08), radius: 2, x: 0, y: 2)
+                       
                         
                     }
                 }

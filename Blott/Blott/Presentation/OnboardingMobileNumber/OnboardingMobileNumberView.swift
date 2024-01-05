@@ -162,6 +162,7 @@ struct OnboardingMobileNumberView: View {
     func validateAndProceed() {
         if areVariablesEmpty() {
             isValidationPassed = true
+            UserDefaults.standard.set(phoneNumber, forKey: "phoneNumberUK")
         }
     }
     
