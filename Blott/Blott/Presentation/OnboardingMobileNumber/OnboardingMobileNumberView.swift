@@ -104,18 +104,14 @@ struct OnboardingMobileNumberView: View {
                             .foregroundColor(Color(red: 0.64, green: 0.64, blue: 0.64))
                         
                         TextField("Enter UK phone number", text: $phoneNumber)
-                                       .padding()
-                                       .textFieldStyle(DefaultTextFieldStyle())
-                                       .onChange(of: phoneNumber) { newValue in
-                               
-                                           let validatedNumber = newValue.filter { $0.isNumber }
-                                           
-                                           if validatedNumber.count > 11 {
-                                               phoneNumber = String(validatedNumber.prefix(11))
-                                           } else {
-                                               phoneNumber = validatedNumber
-                                           }
-                                       }
+                                   .padding()
+                                   .textFieldStyle(DefaultTextFieldStyle())
+                                   .onChange(of: phoneNumber) { newValue in
+                                       let validatedNumber = newValue.filter { $0.isNumber }
+                                       limitText(10) // Ensure the text length does not exceed 11 characters
+                                       phoneNumber = validatedNumber
+                                       formatPhoneNumber()
+                                   }
 
 
                         
@@ -171,21 +167,21 @@ struct OnboardingMobileNumberView: View {
     }
     
     func formatPhoneNumber() {
-               if phoneNumber.count > 10 {
-                   phoneNumber.insert("-", at: phoneNumber.index(phoneNumber.startIndex, offsetBy: 4))
-                   phoneNumber.insert("-", at: phoneNumber.index(phoneNumber.startIndex, offsetBy: 8))
-               }
+           if phoneNumber.count == 10 {
+               phoneNumber.insert("-", at: phoneNumber.index(phoneNumber.startIndex, offsetBy: 2))
+               phoneNumber.insert("-", at: phoneNumber.index(phoneNumber.startIndex, offsetBy: 7))
            }
+       }
 
-    func limitText(_ upper: Int) {
-        if phoneNumber.count > upper {
-            phoneNumber = String(phoneNumber.prefix(upper))
-        }
-    }
+       func limitText(_ upper: Int) {
+           if phoneNumber.count > upper {
+               phoneNumber = String(phoneNumber.prefix(upper))
+           }
+       }
 
     
     func buttonBackgroundColor() -> Color {
-        return !phoneNumber.isEmpty ? Color(red: 0.32, green: 0.23, blue: 0.89) : Color.gray
+        return !phoneNumber.isEmpty && phoneNumber.count > 10 ? Color(red: 0.32, green: 0.23, blue: 0.89) : Color(red: 203 / 255.0, green: 195 / 255.0, blue: 227 / 255.0)
       }
 }
 
